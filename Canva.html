@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego del Ahorcado</title>
+  <style>
+    canvas {
+      border: 2px solid black;
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="400" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Dibujar el ahorcado
+    ctx.beginPath();
+    ctx.strokeStyle = 'black';
+
+    // Cabeza
+    ctx.lineWidth = 2;
+    ctx.arc(200, 100, 20, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Cuerpo
+    ctx.moveTo(200, 120);
+    ctx.lineTo(200, 220);
+    ctx.stroke();
+
+    // Brazo izquierdo
+    ctx.moveTo(200, 140);
+    ctx.lineTo(150, 180);
+    ctx.stroke();
+
+    // Brazo derecho
+    ctx.moveTo(200, 140);
+    ctx.lineTo(250, 180);
+    ctx.stroke();
+
+    // Pierna izquierda
+    ctx.moveTo(200, 220);
+    ctx.lineTo(150, 270);
+    ctx.stroke();
+
+    // Pierna derecha
+    ctx.moveTo(200, 220);
+    ctx.lineTo(250, 270);
+    ctx.stroke();
+  </script>
+</body>
+</html>

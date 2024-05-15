@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <title>Bienvenida del usuario</title>
+  <style>
+    p{
+        color: blue;
+    }
+  </style>
+
+  <script type = "text/javascript">
+  function alertName() {//Declaración de la función con function, el nombre de la variable y los parametros
+    var veces1= parseInt(document.forms[0].veces.value);//ParseInt pasa a un entero
+    for(i=1;i<=veces1;i++){//Ciclo que se repetira las veces que el usuario quiera
+      document.write("<h1>Este es un párrafo</h1>");
+    }
+    return true;
+  }
+  </script>
+</head>
+
+<body>
+    <form id="myform" onsubmit="return alertName();">
+    <p>Cuantos párrafos <input id="veces" name="veces" type="text" /></p>
+    <p><input type="submit" /></p>
+    </form>
+</body>
+</html>

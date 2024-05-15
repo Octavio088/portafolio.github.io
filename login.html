@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <script type="text/javascript">
+        function validar(){
+        var user=document.forms[0].usuario.value;
+        var pass=document.forms[0].contra.value;
+        if(user=="admin" && pass=="admin"){
+            document.write("Acceso permitido<br>");
+            document.write("<a href=https://portafolio183955.000webhostapp.com> Ir a Portafolio</a>");
+        }
+        else{
+            document.write("Acceso denegado<br>");
+            document.write("<a href=login.html> Repite</a>");
+        }
+    return true;
+    }
+    </script>
+</head>
+
+<body>
+<form id="myform" onsubmit="return validar();">
+    <p>Usuario <input id="usuario" name="usuario" type="text" /></p>
+    <p>Contraseña <input id="contra" name="contra" type="password" /></p>  
+    <p><input type="submit" /></p>
+</form>
+</body>
+</html>

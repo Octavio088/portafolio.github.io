@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title></title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id="myPlot" style="width:100%;max-width:700px"></div>
+    <form id="myform" onsubmit="return Graficador();">
+        <p>Inicio: <input id="inicio" name="inicio" type="text" /></p> 
+        <p>Final: <input id="final" name="final" type="text" /></p> 
+        <p>Funciones:
+            <select name="opciones">
+                <option value="1">Seno</option>
+                <option value="2">Coseno</option>
+                <option value="3">Tangente</option>
+                <option value="4">Cotangente</option>
+            </select>
+        </p>
+        <p><input type="submit" /></p>
+        
+    <script>
+     function Graficador(){
+        var inicio= parseInt(document.forms[0].inicio.value); //ParseInt convierte el campo de texto a numerico ´para emplearlo como variable.
+        var final= parseInt(document.forms[0].final.value);
+        var opcion= parseInt(document.forms[0].opciones.value);
+
+        if(inicio!=final && inicio<final){
+            if(opcion==1){
+                    let exp="Math.sin(x)";
+                    const xValues=[];
+                    const yValues=[];
+                        for (let x=inicio;x<=final;x+=0.1){
+                            xValues.push(x);
+                            yValues.push(eval(exp));
+                        }  
+                    const data=[{x:xValues,y:yValues,mode:"lines"}];
+                    const layout={title:"y= "+exp};
+                    Plotly.newPlot("myPlot",data,layout);
+                }
+            if(opcion==2){ //coseno
+                let exp="Math.cos(x)";
+                    const xValues=[];
+                    const yValues=[];
+                        for (let x=inicio;x<=final;x+=0.1){
+                            xValues.push(x);
+                            yValues.push(eval(exp));
+                        }  
+                    const data=[{x:xValues,y:yValues,mode:"lines"}];
+                    const layout={title:"y= "+exp};
+                    Plotly.newPlot("myPlot",data,layout);
+                    }
+            if(opcion==3){//tangente 
+                let exp="Math.tan(x)";
+                    const xValues=[];
+                    const yValues=[];
+                        for (let x=inicio;x<=final;x+=0.1){
+                            xValues.push(x);
+                            yValues.push(eval(exp));
+                        }  
+                    const data=[{x:xValues,y:yValues,mode:"lines"}];
+                    const layout={title:"y= "+exp};
+                    Plotly.newPlot("myPlot",data,layout);
+                    }
+            if(opcion==4){//cotangente
+                let exp="Math.tanh(x)";
+                    const xValues=[];
+                    const yValues=[];
+                        for (let x=inicio;x<=final;x+=0.1){
+                            xValues.push(x);
+                            yValues.push(eval(exp));
+                        }  
+                    const data=[{x:xValues,y:yValues,mode:"lines"}];
+                    const layout={title:"y= "+exp};
+                    Plotly.newPlot("myPlot",data,layout);
+            }
+
+        }else{
+            alert("Los valores inctroducidos no son graficables");
+        }
+        return false;
+    }
+    </script>
+</body>
+</html>
