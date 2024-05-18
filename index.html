@@ -4,158 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú</title>
-
     <style>
-         body{
-            background-color:wheat;
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
-        h1{
+        h1 {
+            font-size: 3em;
+            margin-top: 20px;
+            margin-bottom: 20px;
             text-align: center;
-            font-family: cursive;
-            font-size: 40px;
-            color:black;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #e94560;
         }
-        p{
-            text-align: center;
-            font-size: 15px;
-            color:black;
+        h2 {
+            font-size: 2em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #0f3460;
+            border-bottom: 2px solid #e94560;
+            padding-bottom: 5px;
         }
-        div{
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+        button {
+            background: linear-gradient(45deg, #e94560, #0f3460);
+            color: white;
+            padding: 15px 30px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
             align-items: center;
         }
-        a{
-            color: black;
+        button p {
+            margin: 0;
+        }
+        button:hover {
+            background: linear-gradient(45deg, #0f3460, #e94560);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+            div {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>SEMANA 1</h1>
+    <h1>PORTAFOLIO DE EVIDENCIAS</h1>
+    <h2>SEMANA 1</h2>
     <div>
-        <center>
-    <button onclick="Actividad1()">Ejercicio 1</button>
-    <button onclick="Actividad2()">Ejercicio 2</button>
-    <button onclick="Actividad3()">Ejercicio 3</button>
-    <button onclick="Actividad4()">Ejercicio 4</button>
-    <button onclick="Actividad5()">Ejercicio 5</button>
-    <button onclick="Actividad6()">Ejercicio 6</button>
-    <button onclick="Actividad7()">Ejercicio 7</button>
-    <button onclick="Actividad8()">Ejercicio 8</button>
-        </center>
+        <button onclick="redirigir('Generador_parrafos.html')"><p>Ejercicio 1</p></button>
+        <button onclick="redirigir('tablacelda.html')"><p>Ejercicio 2</p></button>
+        <button onclick="redirigir('Tabla_letra.html')"><p>Ejercicio 3</p></button>
+        <button onclick="redirigir('Tabla_imagen.html')"><p>Ejercicio 4</p></button>
+        <button onclick="redirigir('Tablarand.html')"><p>Ejercicio 5</p></button>
+        <button onclick="redirigir('login.html')"><p>Ejercicio 6</p></button>
+        <button onclick="redirigir('Conversor.html')"><p>Ejercicio 7</p></button>
+        <button onclick="redirigir('arreglos.html')"><p>Ejercicio 8</p></button>
     </div>
 
-    <p id="demo"></p>
-    <iframe src="" name="demo" height="600px" width="100%" title="ifra"></iframe>
+    <h2>SEMANA 2</h2>
+    <div>
+        <button onclick="redirigir('Geolocalizacion.html')"><p>Ejercicio 9</p></button>
+        <button onclick="redirigir('mapa.html')"><p>Ejercicio 10</p></button>
+        <button onclick="redirigir('alert.html')"><p>Ejercicio 11</p></button>
+        <button onclick="redirigir('Canva.html')"><p>Ejercicio 12</p></button>
+        <button onclick="redirigir('graficas.html')"><p>Ejercicio 13</p></button>
+        <button onclick="redirigir('graficos_alta.html')"><p>Ejercicio 14</p></button>
+        <button onclick="redirigir('graficas_math.html')"><p>Ejercicio 15</p></button>
+        <button onclick="redirigir('reto_math.html')"><p>Ejercicio 16</p></button>
+    </div>
 
-<script>
-        function Actividad1(){
-            document.getElementById("demo").innerHTML = "<a href= Generador_parrafos.html target=demo>Actividad 1: </a>";
-        }
-        function Actividad2(){
-            document.getElementById("demo").innerHTML = "<a href= tablacelda.html target=demo>Actividad 2: </a>";
-        }
-        function Actividad3(){
-            document.getElementById("demo").innerHTML = "<a href= Tabla_letra.html target=demo>Actividad 3: </a>";
-        }
-        function Actividad4(){
-            document.getElementById("demo").innerHTML = "<a href= Tabla_imagen.html target=demo>Actividad 4: </a>";
-        }
-        function Actividad5(){
-            document.getElementById("demo").innerHTML = "<a href= Tablarand.html target=demo>Actividad 5: </a>";
-        }
-        function Actividad6(){
-            document.getElementById("demo").innerHTML = "<a href= login.html target=demo>Actividad 6: </a>";
-        }
-        function Actividad7(){
-            document.getElementById("demo").innerHTML = "<a href= Conversor.html target=demo>Actividad 7: </a>";
-        }
-        function Actividad8(){
-            document.getElementById("demo").innerHTML = "<a href= arreglos.html target=demo>Actividad 8: </a>";
-        }
-</script>
+    <h2>SEMANA 3</h2>
+    <div>
+        <button onclick="redirigir('Ahorcado.html')"><p>Ejercicio 17</p></button>
+        <button onclick="redirigir('Test.html')"><p>Ejercicio 18</p></button>
+    </div>
 
-        <h1>SEMANA 2</h1>
-        <div>
-            <center>
-        <button onclick="Actividad9()">Ejercicio 9</button>
-        <button onclick="Actividad10()">Ejercicio 10</button>
-        <button onclick="Actividad11()">Ejercicio 11</button>
-        <button onclick="Actividad12()">Ejercicio 12</button>
-        <button onclick="Actividad13()">Ejercicio 13</button>
-        <button onclick="Actividad14()">Ejercicio 14</button>
-        <button onclick="Actividad15()">Ejercicio 15</button>
-        <button onclick="Actividad16()">Ejercicio 16</button>
-            </center>
-        </div>
-    
-        <p id="sema2"></p>
-        <iframe src="" name="sema2" height="600px" width="100%" title="ifra2"></iframe>
-    
-    <script>
-            function Actividad9(){
-                document.getElementById("sema2").innerHTML = "<a href= Geolocalizacion.html target=sema2>Actividad 9: </a>";
-            }
-            function Actividad10(){
-                document.getElementById("sema2").innerHTML = "<a href= mapa.html target=sema2>Actividad 10: </a>";
-            }
-            function Actividad11(){
-                document.getElementById("sema2").innerHTML = "<a href= alert.html target=sema2>Actividad 11: </a>";
-            }
-            function Actividad12(){
-                document.getElementById("sema2").innerHTML = "<a href= Canva.html target=sema2>Actividad 12: </a>";
-            }
-            function Actividad13(){
-                document.getElementById("sema2").innerHTML = "<a href= graficas.html target=sema2>Actividad 13: </a>";
-            }
-            function Actividad14(){
-                document.getElementById("sema2").innerHTML = "<a href= graficos_alta.html target=sema2>Actividad 14: </a>";
-            }
-            function Actividad15(){
-                document.getElementById("sema2").innerHTML = "<a href= graficas_math.html target=sema2>Actividad 15: </a>";
-            }
-            function Actividad16(){
-                document.getElementById("sema2").innerHTML = "<a href= reto_math.html target=sema2>Actividad 16: </a>";
-            }
-    </script>
-
-        <h1>SEMANA 3</h1>
-        <div>
-            <center>
-        <button onclick="Actividad17()">Ejercicio 17</button>
-        <button onclick="Actividad18()">Ejercicio 18</button>
-            </center>
-        </div>
-
-        <p id="sema3"></p>
-        <iframe src="" name="sema3" height="600px" width="100%" title="ifra3"></iframe>
+    <h2>SEMANA 4</h2>  
+    <div>
+        <button onclick="redirigir('testpdf.html')"><p>Ejercicio 19</p></button>
+        <button onclick="redirigir('ejerciciopdf2.html')"><p>Ejercicio 20</p></button>
+    </div>
 
     <script>
-        function Actividad17(){
-            document.getElementById("sema3").innerHTML = "<a href= Ahorcado.html target=sema3>Actividad 17: </a>";
+        function redirigir(url) {
+            window.location.href = url; 
         }
-        function Actividad18(){
-            document.getElementById("sema3").innerHTML = "<a href= Test.html target=sema3>Actividad 18: </a>";
-        }
-    </script>
-
-        <h1>SEMANA 4</h1>
-        <div>
-            <center>
-        <button onclick="Actividad19()">Ejercicio 19</button>
-        <button onclick="Actividad20()">Ejercicio 20</button>
-            </center>
-        </div>
-
-        <p id="sema4"></p>
-        <iframe src="" name="sema4" height="600px" width="100%" title="ifra4"></iframe>
-
-    <script>
-        function Actividad19(){
-            document.getElementById("sema4").innerHTML = "<a href= testpdf.html target=sema4>Actividad 19: </a>";
-        }
-        function Actividad20(){
-            document.getElementById("sema4").innerHTML = "<a href= ejerciciopdf2.html target=sema4>Actividad 20: </a>";
-        }
-    </script>
-
+    </script> 
 </body>
 </html>
+
