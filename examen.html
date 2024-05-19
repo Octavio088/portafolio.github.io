@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vázquez Solorio Octavio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        // Función para generar los campos de entrada según la longitud especificada por el usuario
+        
+        function generateInputs(event) {
+            event.preventDefault(); // Previene el comportamiento por defecto del formulario
+            var length = parseInt(document.getElementById('sequenceLength').value, 10); // Obtiene la longitud de la secuencia
+            var inputContainer = document.getElementById('inputContainer'); // Obtiene el contenedor de entradas
+            inputContainer.innerHTML = ''; // Limpia cualquier contenido previo
+
+            // Crea los campos de entrada según la longitud especificada
+            for (var i = 0; i < length; i++) {
+                var input = document.createElement('input');
+                input.type = 'text';
+                input.name = 'numero';
+                inputContainer.appendChild(input);
+                inputContainer.appendChild(document.createElement('br')); // Salto de línea
+            }
+
+            // Crea y añade el botón de envío
+            var submitButton = document.createElement('button');
+            submitButton.type = 'submit';
+            submitButton.innerText = 'PDF';
+            inputContainer.appendChild(submitButton);
+        }
+
+        // Función para procesar la secuencia de números y generar el PDF
+        function escribirPalabrafor(event) {
+            event.preventDefault(); // Previene el comportamiento por defecto del formulario
+
+            const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // Alfabeto para la decodificación
+            const inputs = document.querySelectorAll('input[name="numero"]'); // Obtiene todos los campos de entrada
+            const num = []; // Array para almacenar los números ingresados
+            let invalidInput = false; // Bandera para verificar entradas inválidas
+
+            // Recorre los campos de entrada y verifica si son válidos
+            inputs.forEach(input => {
+                const value = parseInt(input.value, 10);
+                if (isNaN(value) || value < 0 || value > 25) { // Verifica si el valor está en el rango permitido
+                    invalidInput = true;
+                } else {
+                    num.push(value); // Añade el valor al array si es válido
+                }
+            });
+
+            // Si hay entradas inválidas, muestra una alerta y detiene la ejecución
+            if (invalidInput) {
+                alert("Tienes que poner números que estén en el rango del 0 al 25");
+                return;
+            }
+
+            // Decodifica los números en letras
+            const palabra = num.map(n => alphabet[n]);
+
+            // Genera el PDF usando jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.setFontSize(20);
+            doc.text(20, 10, "Resultado del mensaje codificado.");
+            doc.setFontSize(14);
+            doc.text(20, 20, `El mensaje codificado es ${num.join(', ')} de ${num.length} caracteres.`);
+            doc.text(20, 30, `El mensaje descodificado es ${palabra.join('')}`);
+            const string = doc.output('datauristring'); // Genera el PDF en formato de URI
+            document.querySelector('iframe').src = string; // Muestra el PDF en un iframe
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Formulario para ingresar la longitud de la secuencia -->
+    <form onsubmit="generateInputs(event);">
+        <p>Escribe la longitud: <input id="sequenceLength" type="text"></p>
+        <p><input type="submit" value="Generar"></p>
+    </form>
+
+    <!-- Formulario para ingresar los números de la secuencia -->
+    <form id="myform1" onsubmit="return escribirPalabrafor(event);">
+        <div id="inputContainer"></div>
+    </form>
+    
+    <!-- Iframe para mostrar el PDF generado -->
+    <iframe frameborder="0" width="800" height="500"></iframe>
+
+</body>
+</html>
