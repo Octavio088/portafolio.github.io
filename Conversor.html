@@ -1,33 +1,37 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
-
-    <script type="text/javascript">
-    function alertname(){
-        var grados= parseInt(document.forms[0].filas.value);
-        var opcion= parseInt(document.forms[0].opcion.value);
-        if(opcion==1){
-        var kelvin=grados+273.15;
-            document.write("Su valor en kelvin es de"+kelvin);
-        }else if(opcion==2){
-        var Fahrenheit=grados*1.8 +32;
-            document.write("<p>Su valor en fahrenheit es de",Fahrenheit,"</p>");
-        }
-        return true;
-    }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
 </head>
 <body>
-<form id="myform" onsubmit="return alertName();">
-    <p>Grados Centigrados <input id="filas" name="filas" type="text" /></p>
-    <p>
-        <select name="opcion" id="opcion">
-            <option value="1">Kelvin</option>
-            <option value="2">Fahrenheit</option>
-        </select>
-    </p>
-<p><input type="submit"></p>
-</form>
+    <form id="myform" onsubmit="return Conversor();">
+        <p>Grados <input id="celsius" name="celsius" type="text" /> C°</p> 
+        <p>A:
+            <select name="opciones">
+                <option value="1">Kelvin</option>
+                <option value="2">Farenheit</option>
+            </select>
+
+        </p>
+        <p><input type="submit" /></p>
+    </form>
+
+    <script>
+        function Conversor(){
+        var Grados= parseInt(document.forms[0].celsius.value); //ParseInt convierte el campo de texto a numerico ´para emplearlo como variable.
+        var opcion= parseInt(document.forms[0].opciones.value);
+        
+        if(opcion==1){
+        var Kelvin= Grados+273.15;
+        alert("Su conversión es de: "+Kelvin);
+        }else if(opcion==2){
+        var Farenheit=Grados*1.8+32;
+        alert("Su conversión es de: "+Farenheit);
+        }
+
+        }
+    </script>
 </body>
 </html>
